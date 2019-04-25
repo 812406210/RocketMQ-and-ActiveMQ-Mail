@@ -20,12 +20,6 @@ public class testController {
         return  "Hello";
     }
 
-  /*  @RequestMapping("/consumer")
-    public  String Consumer() {
-        consumerListener.consum();
-        return  "Consumer";
-    }*/
-
     @RequestMapping("/product")
     public  String Product() {
         String tag = "producerTag";

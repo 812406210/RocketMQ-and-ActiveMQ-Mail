@@ -1,5 +1,6 @@
 package com.rocketmq.demo.rocketMQ;
 
+import com.rocketmq.demo.Utils.SendMailUtil;
 import org.apache.rocketmq.client.consumer.DefaultMQPushConsumer;
 import org.apache.rocketmq.client.consumer.listener.ConsumeConcurrentlyContext;
 import org.apache.rocketmq.client.consumer.listener.ConsumeConcurrentlyStatus;
@@ -9,6 +10,7 @@ import org.apache.rocketmq.common.consumer.ConsumeFromWhere;
 import org.apache.rocketmq.common.message.MessageExt;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.PostConstruct;
@@ -20,15 +22,18 @@ import java.util.List;
 @Component
 public class ConsumerListener {
 
+    @Autowired
+    SendMailUtil sendMailUtil;
+
     private String consumerGroup = "CID_LRW_DEV_SUBS";
     private String topic = "LRW_COM_TOPIC_PRO";
 
-    private final String NamesrvAddr = "139.199.64.189:9876";
+   // private final String NamesrvAddr = "139.199.64.189:9876";
     private static final Logger logger = LoggerFactory.getLogger(ConsumerListener.class);
 
     DefaultMQPushConsumer consumer;
 
-    private static final String ip = "139.199.64.189:9876";
+    //private static final String ip = "139.199.64.189:9876";
     private static final String ip2 = "139.199.64.189:9876";
 
     public ConsumerListener() {
@@ -61,7 +66,11 @@ public class ConsumerListener {
                     String msg = new String(messageExt.getBody());
                     logger.info("消费响应：msgId : " + messageExt.getMsgId() + ",  msgBody : " + msg + ",	tag:" + tag);
                     if(msg!=null){
-
+                        String senderMial = "812406210@qq.com";
+                        String receiveMail = "815899746@qq.com";
+                        String subject = "测试主题";
+                        String text = "rocketmq发送的消息";
+                        sendMailUtil.sendMail(senderMial,receiveMail,subject,text);
                     }
                     System.out.println("*********************************1");
                 }

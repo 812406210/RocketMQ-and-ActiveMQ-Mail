@@ -14,9 +14,10 @@ public class ActiveProducer {
     private JmsMessagingTemplate jmsMessagingTemplate;
 
     @RequestMapping("/sendMsg")
-    public void sendMsg(String msg) {
+    public String sendMsg(String msg) {
         jmsMessagingTemplate.convertAndSend("my_msg", msg);
         System.out.println("msg发送成功");
+        return "正发送邮件以及短信验证码,请注意查收";
     }
 
     @RequestMapping("/sendMap")

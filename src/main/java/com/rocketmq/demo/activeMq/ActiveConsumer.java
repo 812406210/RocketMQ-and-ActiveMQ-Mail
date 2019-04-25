@@ -17,7 +17,7 @@ public class ActiveConsumer {
         if(text!=null){
             //发送短信
             String uid = "812406210@qq.com"; //SMS账号
-            String key = "d41d8cd98f00b204e980";  //账号密钥，不是登陆密码
+            String key = "xxxxx";  //账号密钥，不是登陆密码
             String sendPhoneNum = "15521331585";    //手机号
             String desc = "验证码:";   //发送内容
             SendMessageUtil.send(uid,key,sendPhoneNum,desc+SendMessageUtil.getRandomCode(6));

@@ -14,8 +14,8 @@ import java.util.List;
  * Created by Administrator on 2018/7/27.
  */
 public class Consumer {
-    private static final String ip = "139.199.64.189:9876";
-    private static final String ip2 = "139.199.64.189:9876";
+    private static final String ip = "ip:9876";
+    private static final String ip2 = "ip:9876";
 
     public static void main(String[] args) throws InterruptedException, MQClientException {
 

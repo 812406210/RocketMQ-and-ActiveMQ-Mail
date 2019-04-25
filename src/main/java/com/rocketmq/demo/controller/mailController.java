@@ -20,8 +20,8 @@ public class mailController {
     @ResponseBody
     @RequestMapping("/send")
     public Object sendEmail() {
-        String senderMial = "812406210@qq.com";
-        String receiveMail = "815899746@qq.com";
+        String senderMial = "发送者@qq.com";
+        String receiveMail = "接收者@qq.com";
         String subject = "测试主题";
         String text = "测试内容";
         return sendMailUtil.sendMail(senderMial,receiveMail,subject,text);
@@ -29,11 +29,11 @@ public class mailController {
 
     @GetMapping("/sendFile")
     public String sendAttachmentsMail() {
-        String senderMial = "812406210@qq.com";
-        String receiveMail = "815899746@qq.com";
+        String senderMial = "发送者@qq.com";
+        String receiveMail = "接收者@qq.com";
         String subject = "测试主题";
         String text = "测试内容";
-        String[] path={"C:\\Users\\yangwj\\Desktop\\公司\\联通正式员工详细信息表.xls"};
+        String[] path={"C:\\Users\\yangwj\\Desktop\\公司\\正式员工详细信息表.xls"};
         return  sendMailUtil.sendMailFile(senderMial,receiveMail,subject,text,path);
 
     }

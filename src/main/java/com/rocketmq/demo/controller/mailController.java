@@ -1,24 +1,17 @@
 package com.rocketmq.demo.controller;
 
-import javax.mail.internet.MimeMessage;
-
 import com.rocketmq.demo.Utils.SendMailUtil;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.core.io.FileSystemResource;
-import org.springframework.mail.javamail.JavaMailSender;
-import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
-
 
 @RestController
 @RequestMapping("/mail")
 public class mailController {
     @Autowired
     SendMailUtil sendMailUtil;
-
 
     /**
      * 发送文本消息，不带附件

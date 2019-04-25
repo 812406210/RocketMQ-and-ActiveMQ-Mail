@@ -7,9 +7,6 @@ import org.apache.rocketmq.common.message.Message;
 import org.apache.rocketmq.remoting.common.RemotingHelper;
 
 
-/**
- * Created by Administrator on 2018/7/27.
- */
 public class Producer {
     public static void main(String[] args) throws MQClientException, InterruptedException {
 
@@ -19,7 +16,7 @@ public class Producer {
 
         //设置NameServer地址,此处应改为实际NameServer地址，多个地址之间用；分隔
         //NameServer的地址必须有，但是也可以通过环境变量的方式设置，不一定非得写死在代码里
-        producer.setNamesrvAddr("139.199.64.189:9876");
+        producer.setNamesrvAddr("ip:9876");
        producer.setVipChannelEnabled(false);
         //调用start()方法启动一个producer实例
         producer.start();
